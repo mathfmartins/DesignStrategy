@@ -1,6 +1,5 @@
-using System;
-
-namespace Strategy {
+namespace Strategy_1
+{
     public class Orcamento {
         public decimal Valor {get; private set;}
 
