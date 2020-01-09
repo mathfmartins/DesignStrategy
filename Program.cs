@@ -1,4 +1,5 @@
-﻿using Strategy;
+﻿using System;
+using Strategy;
 using Strategy_2;
 
 namespace design_patterns
@@ -7,8 +8,8 @@ namespace design_patterns
     {
         static void Main(string[] args)
         {
-            TestarStrategy_1();
-            // TestarStrategy_2();
+            // TestarStrategy_1();
+            TestarStrategy_2();
         }
 
         static void TestarStrategy_1() {
@@ -27,13 +28,22 @@ namespace design_patterns
             calcular.CalcularOperacao(24, 18);
 
             calcular.Calculadora = new Subtracao();
-            calcular.CalcularOperacao(89, 47);
-
+            try {
+                calcular.CalcularOperacao(89, 47);
+            }
+            catch { 
+                System.Console.WriteLine("Erro na Operação");
+            }
             calcular.Calculadora = new Multiplicacao();
             calcular.CalcularOperacao(21, 2);
 
             calcular.Calculadora = new Divisao();
-            calcular.CalcularOperacao(210, 5);
+            try {
+                calcular.CalcularOperacao(210, 5);
+            }
+            catch (Exception ex){
+                Console.WriteLine($"Erro na operação {ex.InnerException}");
+            }
         }
     }
 }
