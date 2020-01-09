@@ -7,8 +7,8 @@ namespace design_patterns
     {
         static void Main(string[] args)
         {
-            // TestarStrategy_1();
-            TestarStrategy_2();
+            TestarStrategy_1();
+            // TestarStrategy_2();
         }
 
         static void TestarStrategy_1() {
@@ -17,8 +17,8 @@ namespace design_patterns
 
             var orcamento = new Orcamento(500);
             var calculador = new CalculadorDeImpostos();
-            decimal impostoIcms = (calculador.RealizarCalculo(orcamento, icms));
-            decimal impostoIss = (calculador.RealizarCalculo(orcamento, iss));
+            decimal impostoIcms = calculador.RealizarCalculo(orcamento, icms);
+            decimal impostoIss = calculador.RealizarCalculo(orcamento, iss);
             System.Console.WriteLine($"Imposto ICMS: {impostoIcms}\nImposto ISS: {impostoIss}"); 
         }
 
